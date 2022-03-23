@@ -42,9 +42,11 @@ def z_score_test(df, list_means, list_std):
 class EqualPenaltyReg(BaseEstimator):
     def __init__(self, thresh=234, tolerance=1e-10, max_iter=20000, alpha=1., l2_param=0.1):
         """
-        tolerance: for stopping gradient descent
-        max_iter: maximum number of steps in gradient descent
-        alpha: momentum coefficient
+        thresh: The threshold beyond which the loss function is almost constant.
+        tolerance: For early-stopping the gradient descent
+        max_iter: Maximum number of steps in the gradient descent
+        alpha: learning rate
+        l2_param: L2 regularization parameter
         """
         self.thresh = thresh
         self.tolerance = tolerance
